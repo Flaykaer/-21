@@ -1,0 +1,51 @@
+И так проверим задачу из фильма https://www.youtube.com/shorts/gZfKtKNyPMQ 
+cначало мы не будем менять выбор 
+
+import random
+result = 0
+for i in range(100000):
+    mashina = random.randint(1,3)
+    vibor = random.randint(1,3)
+    samokat_list = [1,2,3]
+    if mashina == vibor and vibor != 1:
+        samokat = vibor-1
+    elif mashina == vibor and vibor != 3:
+        samokat = vibor+1
+    else:
+         samokat = 6 - mashina - vibor
+    if vibor == mashina:
+        result+= 1
+
+print(result)  
+
+Из 100тыс тестов мы получаем ~33294 т.е. 33.(3)%
+
+Теперь меняем выбор:
+
+import random
+result = 0
+for i in range(100000):
+    mashina = random.randint(1,3)
+    vibor = random.randint(1,3)
+    samokat_list = [1,2,3]
+    if mashina == vibor and vibor != 1:
+        samokat = vibor-1
+    elif mashina == vibor and vibor != 3:
+        samokat = vibor+1
+    else:
+         samokat = 6 - mashina - vibor
+    for j in range(1,4):
+        if j != vibor and j != samokat:
+            vibor2 = j
+
+ 
+    if vibor2 == mashina:
+        result+= 1
+
+print(result)
+
+Из 100тыс тестов мы получаем ~66566 т.е. 66.(6)%
+
+Здесь только код , подробнее можно посмотреть https://ru.wikipedia.org/wiki/%D0%9F%D0%B0%D1%80%D0%B0%D0%B4%D0%BE%D0%BA%D1%81_%D0%9C%D0%BE%D0%BD%D1%82%D0%B8_%D0%A5%D0%BE%D0%BB%D0%BB%D0%B0
+
+        
